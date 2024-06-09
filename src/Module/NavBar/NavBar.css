@@ -1,0 +1,42 @@
+.NavDash {
+    background-color: white !important;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.15);
+    /* position: fixed !important; */
+    /* width: 100vw !important; */
+    z-index: 10;
+}
+.NavDashCont {
+ justify-content: flex-start !important;
+ gap: 100px !important;
+}
+.NavDash a {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 53.73px;
+    margin-right: 0 !important;
+}
+.NavDash span {
+    color: var(--main-color);
+}
+.NavDashForm {
+    /* justify-content: flex-end !important; */
+    position: relative !important;
+}
+
+.NavDashSearch {
+    border: none !important;
+    border-bottom: 1px solid black !important;
+    border-radius: 0px !important;
+    outline: none !important;
+    padding-right: 25px !important;
+    cursor: pointer;
+}
+.NavDashSearch:focus {
+    outline: none !important;
+    /* border: none !important; */
+    box-shadow: none !important ;
+}
+.NavDashForm img {
+    position: absolute;
+    top: 5px;
+}

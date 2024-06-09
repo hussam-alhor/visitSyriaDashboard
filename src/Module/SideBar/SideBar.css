@@ -1,0 +1,84 @@
+.sideBar {
+   width: 281px !important;
+   /* display: flex; */
+   font-family: 'Frutiger55';
+}
+.SidBarDrop .dropdown-menu a{
+   display: block !important;
+}
+.SidBarDrop .dropdown-toggle:empty::after {
+   margin-left: 0 !important;
+   position: absolute !important;
+   left: 67px !important;
+   top: -34px !important;
+   width: 20px;
+   height: 20px;
+   z-index:3;
+   border: none;
+}
+.sideBarDropLand .dropdown-toggle:empty::after {
+    left: 18px !important;
+}
+
+.SidBarDrop .dropdown-menu {
+   position: relative !important;
+   top: -22px !important;
+   border: none !important;
+   background-color: transparent;
+}
+.SidBarDrop .dropdown-menu a {
+   text-align: center !important;
+   margin: 0px!important;
+}
+a {
+   text-decoration: none !important;
+}
+.sideBarDir {
+   flex-direction: column !important;
+   background-color: white;
+   height: calc(100vh - 86px);
+   position: relative;
+   width: 100%;
+   }
+   .sideBarDir a {
+      color: black;
+      padding: 0 !important;
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      }
+   .sideBarDir a.active {
+      background-color: rgba(141, 211, 187, 0.3) !important;
+   }
+   .sideBarDir a span {
+      padding: 10px 0px !important;
+      display: block;
+   }
+ .sideBarDir .sidBarRightIcon {
+   width: 26px;
+   margin-left: 10px;
+   margin-right: 20px;
+ }
+
+ .sideBarDir .SideLandIcon {
+    margin: 0px 65px 0px 5px !important;
+ }
+
+.sideBarDir .sideBarDropIcon {
+   width: 13px;
+   position: relative;
+   right: 10px;
+}
+/* .sideBarDir  {
+   background-color: ;
+} */
+.SidBarDrop a span {
+   background-color: rgba(212, 239, 229, 0.5) !important;
+   display: block;
+   width: 100%;
+   padding: 10px 0px;
+}
+.SidBarDrop a .sideBarSpanLand {
+   padding: 10px 50px 10px 0px !important;
+}
