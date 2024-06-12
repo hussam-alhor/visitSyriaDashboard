@@ -24,7 +24,7 @@ const SideBar = () => {
 
           <Nav className="sideBarDir">
             {/* <img className='sidBarRightIcon' src={home} alt=""></img> */}
-            <NavLink to={'/'}>
+            <NavLink to={'/home'}>
             <img className='sidBarRightIcon' src={home} alt=""></img> 
             <span>لوحة التحكم</span>
             </NavLink>

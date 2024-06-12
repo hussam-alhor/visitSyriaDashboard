@@ -1,8 +1,12 @@
 import React from 'react'
+import SideBar from '../../SideBar/SideBar'
 
 const ShowHotels = () => {
   return (
-    <div>ShowHotels</div>
+    <div className='sidFlex'>
+      <SideBar/>
+      ShowHotels
+      </div>
   )
 }
 

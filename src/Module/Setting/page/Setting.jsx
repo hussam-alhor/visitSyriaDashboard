@@ -1,8 +1,12 @@
 import React from 'react'
+import SideBar from '../../SideBar/SideBar'
 
 const Setting = () => {
   return (
-    <div>Setting</div>
+    <div className='sidFlex'>
+      <SideBar/>
+      Setting
+      </div>
   )
 }
 

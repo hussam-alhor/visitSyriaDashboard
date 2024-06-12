@@ -1,8 +1,12 @@
 import React from 'react'
+import SideBar from '../../SideBar/SideBar'
 
 const ShowRestaurants = () => {
   return (
-    <div>ShowRestaurants</div>
+    <div className='sidFlex'>
+      <SideBar/>
+      ShowRestaurants
+      </div>
   )
 }
 

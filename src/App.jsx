@@ -18,6 +18,7 @@ import ShowHotels from './Module/Hotels/page/ShowHotels'
 import ShowRestaurants from './Module/Restaurants/page/ShowRestaurants'
 import ShowLandMarks from './Module/LandMarks/page/ShowLandMarks'
 import ShowBlogs from './Module/Blogs/page/ShowBlogs'
+import Login from './Module/Login/page/Login'
 
 function App() {
 
@@ -25,12 +26,12 @@ function App() {
   return (
     <div>
       <NavBar/>
-      <div className="sidFlex">
-      <SideBar/>
+      
       <Routes>
-        <Route path='/' element={<ShowDashboard/>} />
+        <Route path='/' element={<Login/>} />
+        <Route path='/home' element={<ShowDashboard/>} />
 
-        <Route path='/AboutSyriaManagment' element={<ShowAboutSyriaManagment/>} />
+        <Route path='/AboutSyria' element={<ShowAboutSyriaManagment/>} />
 
         <Route path='/hotels' element={<ShowHotels/>} />
         <Route path='/hotelsManagment' element={<ShowHotelsManagment/>} />
@@ -51,9 +52,9 @@ function App() {
 
         <Route path='/setting' element={<Setting/>} />
    </Routes>
-      </div>
+  </div>
       
-    </div>
+  
     
   )
 }
