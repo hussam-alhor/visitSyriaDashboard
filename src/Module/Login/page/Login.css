@@ -1,0 +1,85 @@
+/* body {
+    background-color:rgba(212, 239, 229, 0.5);
+    font-family:"Frutiger LT Arabic";
+  } */
+  
+  .as_row {
+    justify-content: center;
+  }
+  
+  .as_login {
+    text-align: center;
+    margin-bottom: 72px !important;
+    
+  }
+  
+  
+  .as_login h1 {
+  
+    color: #8dd3bb !important;
+    font-size: 48px  !important;
+    font-weight: 700 !important;
+    line-height: 92.11px !important;
+    text-align:center !important;
+  }
+
+  .as_login h3 {
+    font-size: 20px  !important;
+    font-weight: 400 !important;
+    line-height: 38.38px !important;
+    text-align: center !important;
+    margin: 0px !important;
+  }
+  
+  .as_login span {
+    color: #000000;
+  }
+  
+  .as_col {
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    padding: 10px 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 605px !important;
+    height: 605px !important;
+  }
+ 
+  
+  .as_form {
+    text-align: center !important;
+    margin: 1px !important;
+  }
+  
+  .as_form div{
+    margin-bottom: 32px !important;
+  
+  }
+  
+  .as_input {
+    background-color: rgba(141, 211, 187, 0.1) !important;
+    border-color: transparent !important;
+    /* margin-bottom: 10px !important; */
+    padding: 10px !important;
+    border-radius: 8px !important;
+    width: 445px !important;
+    color:rgba(161, 161, 161, 1) !important;
+    border-color: #8DD3BB !important;
+    ;
+  }
+ 
+  
+  .as-button{
+    width: 206px !important;
+    margin-top: 32px !important;
+    background-color: rgba(87, 222, 176, 0.75) !important;
+    border-radius: 8px !important;
+    border-color:none !important;
+    color: black !important;
+
+  }
+  
+  
+  
