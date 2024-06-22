@@ -23,6 +23,7 @@ const Login = () => {
 
 
   async function handleLogIn(e) {
+    console.log("first");
     e.preventDefault();
     setVer(true);
     let flag=true;
