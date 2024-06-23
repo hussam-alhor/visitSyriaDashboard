@@ -14,7 +14,6 @@ const NavBar = () => {
 
   function handleLogOut () {
     window.localStorage.removeItem('email');
-    // window.location.pathname = '/' ;
     navigate('/');
   }
 

@@ -11,6 +11,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [ver, setVer] = useState(false);
   const [emailError, setEmailError] = useState("");
+  const [PasswordError, setPasswordError] = useState("");
   
   const navigate = useNavigate();
 
@@ -36,13 +37,13 @@ const Login = () => {
         }) 
         if(res.status === 200){
           window.localStorage.setItem("email", email);
-          // window.location.pathname = '/home' ;
           navigate("/home");
         } 
       } 
      } catch(err){
       console.log(err)
        setEmailError(err.response.status)
+       setPasswordError(err.response.status)
      }
     
   }  
@@ -76,7 +77,7 @@ const Login = () => {
                 />
 
               </Form.Group>
-              {ver && emailError === 401 ? <p className="as-error">هذا الإيميل موجود مسبقا</p>: ''}
+              {/* {ver && emailError === 401 ? <p className="as-error">هذا الإيميل موجود مسبقا</p>: ''} */}
 
               <Form.Group controlId="formBasicPassword">
                 <FormControl
@@ -89,7 +90,7 @@ const Login = () => {
                  placeholder="كلمة المرور"
 
                 />
-                {password.length < 8 && ver && <p className="as-error">كلمة مرور خاطئة</p>}
+                { password.length < 8 && ver || PasswordError === 401 ? <p className="as-error">كلمة المرور او الإيميل غير صحيح</p> : ''}
               </Form.Group>
 
               <Button
