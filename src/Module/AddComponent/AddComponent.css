@@ -1,0 +1,115 @@
+.addComponent {
+    padding: 10px 30px;
+    width: 100%;
+}
+
+.addComponent .addForm {
+    display: flex;
+
+    /* justify-content: space-between; */
+}
+
+
+.addComponent .addInfo .input-info {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 445px;
+
+}
+
+.addComponent .addInfo .input-info label {
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+
+.addComponent .addInfo .input-info input {
+    border-radius: 8px;
+    border: 1px solid #9F9A9A;
+    outline: none;
+    height: 48px;
+    padding: 10px;
+}
+
+.addComponent .errorMessage {
+    color: red;
+    font-size: 12px;
+}
+
+.addComponent .addInfo .addSubmit {
+    width: 206px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: #57DEB0BF;
+    font-size: 18px;
+    border: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.addComponent .addImages {
+    width: 100%;
+    display: flex;
+    margin-right: 60px;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.addComponent .addImages .nameImage {
+    position: absolute;
+    left: 150px;
+}
+
+.addComponent .addImages .input-image {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-bottom: 10px; */
+}
+
+.addComponent .addImages .input-image img {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-top: 10px;
+    object-fit: cover;
+}
+
+.addComponent .addImages .gallery {
+    /* padding: 10px;
+    background-color: #EEEDED;
+    border-radius: 2px;
+    position: relative;
+    display: flex;
+    width: 176px;
+    align-items: center;
+    height: 165.46px;
+    justify-content: center; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addComponent .addImages .gallery .choose-gallery {
+    /* width: 176px;
+    height: 165.46px; */
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    padding: 10px 20px;
+    background-color: #EEEDED;
+
+
+}
+
+.addComponent .addImages .gallery .choose-gallery img {
+    height: 60px;
+    width: 60px;
+
+}
