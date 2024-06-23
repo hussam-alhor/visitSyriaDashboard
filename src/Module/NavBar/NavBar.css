@@ -6,7 +6,7 @@
     z-index: 10;
 }
 .NavDashCont {
- justify-content: flex-start !important;
+ /* justify-content: flex-start !important; */
  gap: 100px !important;
 }
 .NavDash a {
@@ -39,4 +39,15 @@
 .NavDashForm img {
     position: absolute;
     top: 5px;
+}
+
+.navLogOut {
+    background: rgba(141, 211, 187, 0.3) !important;
+    padding: 10px 5px;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.navLogOut:hover {
+    color: var(--main-color);
 }
