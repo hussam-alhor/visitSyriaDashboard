@@ -12,7 +12,6 @@ const Login = () => {
   const [ver, setVer] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [PasswordError, setPasswordError] = useState("");
-  
   const navigate = useNavigate();
 
  console.log(email)
@@ -21,30 +20,32 @@ const Login = () => {
     // console.log("first");
     e.preventDefault();
     setVer(true);
-
+    
     let flag=true;
     if(password.length < 8){
       flag=false;
     }
      else flag=true;
-
+     
     try{
       if(flag){
-
-      let res = await axios.post("http://127.0.0.1:8000/api/login",{
+        
+        let res = await axios.post("http://127.0.0.1:8000/api/login",{
           email:email,
           password:password
         }) 
+        
         if(res.status === 200){
+          window.localStorage.setItem("token", res.data.authorisation.token);
           window.localStorage.setItem("email", email);
           navigate("/home");
         } 
       } 
-     } catch(err){
+    } catch(err){
       console.log(err)
-       setEmailError(err.response.status)
-       setPasswordError(err.response.status)
-     }
+      setEmailError(err.response.status)
+      setPasswordError(err.response.status)
+    }
     
   }  
 
