@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Form, Button, Row, Col, Image } from 'react-bootstrap';
+import axios from 'axios';
 import './genericEdit.css';
-import addIcon from '../../../public/assets/img/add.svg'; 
-import imageIcon from '../../../public/assets/img/image.svg'; 
+import addIcon from '../../../public/assets/img/add.svg';
+import imageIcon from '../../../public/assets/img/image.svg';
 import { RiEdit2Line } from "react-icons/ri";
 
 const GenericEditForm = ({
@@ -22,7 +23,9 @@ const GenericEditForm = ({
   initialMenuImage,
   initialSiteImages,
   entityType,
-  onSubmit
+  url,
+   // Accept URL as a prop
+
 }) => {
   const [name, setName] = useState(initialName);
   const [location, setLocation] = useState(initialLocation);
@@ -33,7 +36,7 @@ const GenericEditForm = ({
   const [internalImage, setInternalImage] = useState(initialInternalImage);
   const [siteImages, setSiteImages] = useState(initialSiteImages);
   const [menuImage, setMenuImage] = useState(initialMenuImage);
-
+ 
   const handleImageChange = (setter) => (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -66,9 +69,9 @@ const GenericEditForm = ({
     document.getElementById(id).click();
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit({
+    const formData = {
       name,
       location,
       price,
@@ -78,7 +81,18 @@ const GenericEditForm = ({
       internalImage,
       siteImages,
       menuImage
-    });
+    };
+    console.log('Form data before submission:', formData); // Log the form data
+
+    try {
+ console.log(url);
+      const response = await axios.put(url, formData);
+      console.log('Submitted data:', formData); // Log the submitted data
+      console.log('Response:', response.data); // Log the response from the server
+    
+    } catch (error) {
+      console.error('Error updating the restaurant:', error);
+    }
   };
 
   return (
@@ -146,7 +160,7 @@ const GenericEditForm = ({
               </Col>
               <Col xs={4} className="d-flex align-items-center image-container" onClick={() => triggerFileInput('externalImageInput')}>
                 {externalImage ? (
-                  <Image src={externalImage} rounded className="border border-secondary image-preview" />
+                  <Image src={`http://localhost:8000/storage/${externalImage}`} rounded className="border border-secondary image-preview" />
                 ) : (
                   <img src={imageIcon} alt="Add external image" className="placeholder-image" />
                 )}
@@ -167,7 +181,7 @@ const GenericEditForm = ({
               </Col>
               <Col xs={4} className="d-flex align-items-center image-container" onClick={() => triggerFileInput('internalImageInput')}>
                 {internalImage ? (
-                  <Image src={internalImage} rounded className="border border-secondary image-preview" />
+                  <Image src={`http://localhost:8000/storage/${internalImage}`} rounded className="border border-secondary image-preview" />
                 ) : (
                   <img src={imageIcon} alt="Add internal image" className="placeholder-image" />
                 )}
@@ -190,7 +204,7 @@ const GenericEditForm = ({
                 </Col>
                 <Col xs={4} className="d-flex align-items-center image-container" onClick={() => triggerFileInput('menuImageInput')}>
                   {menuImage ? (
-                    <Image src={menuImage} rounded className="border border-secondary image-preview" />
+                    <Image src={`http://localhost:8000/storage/${menuImage}`} rounded className="border border-secondary image-preview" />
                   ) : (
                     <img src={imageIcon} alt="Add menu image" className="placeholder-image" />
                   )}
@@ -212,11 +226,11 @@ const GenericEditForm = ({
                 <Form.Label className='labels-form'>إضافة صور للموقع</Form.Label>
               </Col>
             </Row>
-            <Row >
+            <Row>
               {siteImages.map((image, index) => (
                 <Col key={index} xs={6} md={4} className="d-flex align-items-center image-container" onClick={() => triggerFileInput(`siteImageInput${index}`)}>
                   {image ? (
-                    <Image src={image} rounded className="border border-secondary image-preview" />
+                    <Image src={`http://localhost:8000/storage/${image}`} rounded className="border border-secondary image-preview" />
                   ) : (
                     <img src={imageIcon} alt="Add site image" className="placeholder-image" />
                   )}
@@ -230,7 +244,7 @@ const GenericEditForm = ({
                 </Col>
               ))}
               <Col xs={6} md={4} className="d-flex align-items-center add-site-image-container">
-                <Button variant="secondary" onClick={addSiteImage} className="add-image-button" >
+                <Button variant="secondary" onClick={addSiteImage} className="add-image-button">
                   <img src={addIcon} alt="Add icon" />
                 </Button>
               </Col>

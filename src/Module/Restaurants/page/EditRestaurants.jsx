@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import SideBar from '../../SideBar/SideBar';
 import GenericEditForm from '../../sharedComponents/GenericEditForm';
 
 const EditRestaurants = () => {
     const { restaurantId } = useParams();
+  
+
+    const navigate = useNavigate();
     const [initialData, setInitialData] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -15,6 +18,7 @@ const EditRestaurants = () => {
                 const response = await axios.get(`http://localhost:8000/api/restaurants/${restaurantId}`);
                 setInitialData(response.data);
                 setLoading(false);
+              console.log(response.data);
             } catch (error) {
                 console.error('Error fetching the initial data:', error);
                 setLoading(false);
@@ -23,6 +27,7 @@ const EditRestaurants = () => {
 
         fetchInitialData();
     }, [restaurantId]);
+ 
 
     if (loading) {
         return <div>Loading...</div>;
@@ -46,14 +51,18 @@ const EditRestaurants = () => {
                 initialLocation={initialData.location}
                 initialPrice={initialData.price}
                 initialMainDescription={initialData.long_description}
-                initialSecondaryDescription={initialData.secondary_description}
+                initialSecondaryDescription={initialData.short_description}
                 initialExternalImage={initialData.exterior_photos}
                 initialInternalImage={initialData.interior_photos}
                 initialSiteImages={initialData.more_images}
                 entityType="restaurant" // For restaurant
+      
+                url={`http://localhost:8000/api/restaurants/${restaurantId}`} // Use template literal
+        
             />
         </div>
     );
-}
+};
+//{initialData.more_images}["public/assets/img/hotel.svg"]
 
 export default EditRestaurants;
