@@ -1,7 +1,7 @@
 import React from 'react'
 import SideBar from '../../SideBar/SideBar'
+import './ShowAboutSyriaManagment.css'
 // import AddArticleRight from '../component/AddAricleAboutRight/AddArticleRight'
-// import './ShowAboutSyriaManagment.css'
 // import { Col, Row } from 'react-bootstrap'
 // import AddArticleAboutLeft from '../component/AddArticleAboutLeft/AddArticleAboutLeft'
 
