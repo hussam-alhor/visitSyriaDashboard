@@ -56,7 +56,6 @@ const EditRestaurants = () => {
                 initialInternalImage={initialData.interior_photos}
                 initialSiteImages={initialData.more_images}
                 entityType="restaurant" // For restaurant
-      
                 url={`http://localhost:8000/api/restaurants/${restaurantId}`} // Use template literal
         
             />
