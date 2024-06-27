@@ -1,0 +1,17 @@
+.aboutRightForm {
+
+    margin: 20px 20px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.aboutRightForm .aboutRightFormInput {}
+
+
+.aboutRightForm .aboutRightText {    
+    margin: 30px 0px 0px;
+}
+
+.form-control:focus , .form-select:focus {
+    box-shadow: none !important;
+}
