@@ -1,5 +1,6 @@
 .sideBar {
    width: 281px !important;
+   margin-top: -9px;
    /* display: flex; */
    font-family: 'Frutiger55';
 }

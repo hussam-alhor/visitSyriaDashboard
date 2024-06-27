@@ -19,44 +19,107 @@ import ShowRestaurants from './Module/Restaurants/page/ShowRestaurants'
 import ShowLandMarks from './Module/LandMarks/page/ShowLandMarks'
 import ShowBlogs from './Module/Blogs/page/ShowBlogs'
 import Login from './Module/Login/page/Login'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
+
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 
-  return (
-    <div>
-      <NavBar/>
-      
-      <Routes>
-        <Route path='/' element={<Login/>} />
-        <Route path='/home' element={<ShowDashboard/>} />
 
-        <Route path='/AboutSyria' element={<ShowAboutSyriaManagment/>} />
+import { Container, Row, Col } from 'react-bootstrap';
+import EditRestaurants from './Module/Restaurants/page/EditRestaurants'
 
-        <Route path='/hotels' element={<ShowHotels/>} />
-        <Route path='/hotelsManagment' element={<ShowHotelsManagment/>} />
-        <Route path='/hotelsReports' element={<ShowHotelsReports/>} />
-
-        <Route path='/restaurants' element={<ShowRestaurants/>} />
-        <Route path='/restaurantsManagment' element={<ShowRestaurantsManagment/>} />
-        <Route path='/restaurantsReports' element={<ShowRestaurantsReports/>} />
-
-        <Route path='/landMarks' element={<ShowLandMarks/>} />
-        <Route path='/landMarksManagment' element={<ShowLandMarksManagment/>} />
-        <Route path='/landMarksReports' element={<ShowLandMarksReports/>} />
-
-        <Route path='/Blogs' element={<ShowBlogs/>} />
-        <Route path='/BlogManagment' element={<ShowBlogManagment/>} />
-        <Route path='/BlogReport' element={<ShowBlogReport/>} />
-        
-
-        <Route path='/setting' element={<Setting/>} />
-   </Routes>
-  </div>
-      
-  
     
-  )
-}
 
-export default App
+const App = () => {
+
+
+  return ( 
+    <> <NavBar/><Routes>
+    <Route path='/' element={<Login/>} />
+    <Route path='/home' element={<ShowDashboard/>} />
+
+    <Route path='/AboutSyria' element={<ShowAboutSyriaManagment/>} />
+
+    <Route path='/hotels' element={<ShowHotels/>} />
+    <Route path='/hotelsManagment' element={<ShowHotelsManagment/>} />
+    <Route path='/hotelsReports' element={<ShowHotelsReports/>} /> 
+
+    <Route path='/restaurants' element={<ShowRestaurants/>} />
+    <Route path='/restaurantsManagment' element={<ShowRestaurantsManagment/>} />
+    <Route path='/restaurantsReports' element={<ShowRestaurantsReports/>} />
+    <Route path='/restaurant-edit' element={<EditRestaurants/>} />
+
+
+
+    <Route path='/landMarks' element={<ShowLandMarks/>} />
+    <Route path='/landMarksManagment' element={<ShowLandMarksManagment/>} />
+    <Route path='/landMarksReports' element={<ShowLandMarksReports/>} />
+
+    <Route path='/Blogs' element={<ShowBlogs/>} />
+    <Route path='/BlogManagment' element={<ShowBlogManagment/>} />
+    <Route path='/BlogReport' element={<ShowBlogReport/>} />
+    
+
+    <Route path='/setting' element={<Setting/>} />
+</Routes> 
+</> 
+)};
+//     <div className='editComponent'>
+//     <NavBar/>
+ 
+// <div >
+//       <Row>
+//         <Col md={3} className='sidee'>
+//           <SideBar  />
+//         </Col>
+//         <Col md={9}>
+//         <GenericEditForm
+//   nameLabel="اسم المطعم"
+//   locationLabel="موقع المطعم"
+//   priceLabel="سعر الحجز"
+//   mainDescriptionLabel="الوصف الأولي"
+//   secondaryDescriptionLabel="الوصف الثانوي"
+//   buttonLabel="تعديل مطعم"
+//   initialName="وردة الشام"
+//   initialLocation="دمشق"
+//   initialPrice="5000"
+//   initialMainDescription="وصف رئيسي"
+//   initialSecondaryDescription="وصف ثانوي"
+//   initialExternalImage={null}
+//   initialInternalImage={null}
+//   intialMenueImage={'public/assets/img/restaurant.svg'}
+//   initialSiteImages={['public/assets/img/restaurant.svg','public/assets/img/home.svg']}
+//   entityType="restaurant" // For restaurant
+// />
+
+        /* <GenericEditForm
+  nameLabel="اسم الفندق"
+  locationLabel="موقع الفندق"
+  priceLabel="سعر الحجز"
+  mainDescriptionLabel="الوصف الأولي"
+  secondaryDescriptionLabel="الوصف الثانوي"
+  buttonLabel="تعديل فندق"
+  initialName="فندق دمشق"
+  initialLocation="دمشق"
+  initialPrice="10000"
+  initialMainDescription="وصف رئيسي"
+  initialSecondaryDescription="وصف ثانوي"
+  initialExternalImage={null}
+  initialInternalImage={null}
+  initialSiteImages={[]}
+  entityType="hotel" // For hotel
+/> */
+
+//         </Col>
+//       </Row>
+//       </div>
+//       </div>
+//   );
+// };
+
+      
+     
+    
+export default App;
