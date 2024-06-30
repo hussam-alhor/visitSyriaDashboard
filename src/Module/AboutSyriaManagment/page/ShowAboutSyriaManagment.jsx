@@ -45,6 +45,8 @@ const ShowAboutSyriaManagment = () => {
         field: 'id',
     }
 ];
+const token ='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzE5NzY1ODgxLCJleHAiOjE3MTk3Njk0ODEsIm5iZiI6MTcxOTc2NTg4MSwianRpIjoiS25mQUZsamlvWXFjeEkzYSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.eP2T9-5_mn5pH3BDaSpWHURD08_FEpR40a9vIAxYk3k';
+
   return (
     <div className="sidFlex">
       <SideBar />
@@ -61,6 +63,7 @@ const ShowAboutSyriaManagment = () => {
         <AboutSyriaTable
           apiEndpoint="http://127.0.0.1:8000/api/posts"
           columns={columns}
+          token={token}
         />
     </div>
   );

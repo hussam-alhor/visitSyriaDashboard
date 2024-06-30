@@ -1,8 +1,7 @@
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 import right from '/assets/img/chevron-right.png';
-import left from '/assets/img/chevron-left.png'
+import left from '/assets/img/chevron-left.png';
 import {
   Table,
   Pagination,
@@ -10,38 +9,43 @@ import {
   FormControl,
   Form,
 } from "react-bootstrap";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
-const AboutSyriaTable = ({ apiEndpoint, columns }) => {
-    const [data, setData] = useState([]);
-    const [page, setPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1);
-    const [sortCategory, setSortCategory] = useState("");
-  
-    useEffect(() => {
-      axios
-        .get(`${apiEndpoint}?page=${page}&sort=${sortCategory}`)
-        .then((response) => {
-          setData(response.data.data);
-          setTotalPages(response.data.last_page);
-        })
-        .catch((error) => {
-          console.error("There was an error fetching the data!", error);
-        });
-    }, [page, sortCategory, apiEndpoint]);
-  
-    const handlePageChange = (pageNumber) => {
-      setPage(pageNumber);
-    };
+
+const AboutSyriaTable = ({ apiEndpoint, columns, token }) => {
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [sortCategory, setSortCategory] = useState('');
+
+  useEffect(() => {
+    axios.get(`${apiEndpoint}?page=${page}&sort=${sortCategory}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+    .then(response => {
+      setData(response.data.data || []);
+      setTotalPages(response.data.last_page || 1);
+    })
+    .catch(error => {
+      console.error("There was an error fetching the data!", error);
+      setData([]);
+      setTotalPages(1);
+    });
+  }, [page, sortCategory, apiEndpoint, token]);
+
+  const handlePageChange = (pageNumber) => {
+    setPage(pageNumber);
+  };
+
   return (
     <>
-            <div className="main-content w-75 mt-5 ">
+      <div className="main-content w-75 mt-5">
         <div className="actions d-flex justify-content-between align-items-center mb-3">
           <div className="action">
-            {/* <Button variant="success" className="custom-add-button">
-            </Button> */}
-            <Link to='' className="custom-add-button"  variant="success">
-            إضافة مقال
+            <Link to='' className="custom-add-button" variant="success">
+              إضافة مقال
             </Link>
             <InputGroup className="search-bar">
               <FormControl
@@ -67,7 +71,7 @@ const AboutSyriaTable = ({ apiEndpoint, columns }) => {
           <thead>
             <tr>
               {columns.map((column, index) => (
-                <th  key={index}>{column.header}</th>
+                <th key={index}>{column.header}</th>
               ))}
             </tr>
           </thead>
@@ -90,9 +94,8 @@ const AboutSyriaTable = ({ apiEndpoint, columns }) => {
             onClick={() => handlePageChange(page - 1)}
             disabled={page === 1}
           >
-             <img src={right} alt="" />
+            <img src={right} alt="" />
             السابق
-           
           </Pagination.Prev>
           {[...Array(totalPages).keys()].map((number) => (
             <Pagination.Item
@@ -117,13 +120,15 @@ const AboutSyriaTable = ({ apiEndpoint, columns }) => {
 }
 
 AboutSyriaTable.propTypes = {
-    apiEndpoint: PropTypes.string.isRequired,
-    columns: PropTypes.arrayOf(
-      PropTypes.shape({
-        header: PropTypes.string.isRequired,
-        field: PropTypes.string.isRequired,
-        render: PropTypes.func,
-      })
-    ).isRequired,
-  };
+  apiEndpoint: PropTypes.string.isRequired,
+  columns: PropTypes.arrayOf(
+    PropTypes.shape({
+      header: PropTypes.string.isRequired,
+      field: PropTypes.string.isRequired,
+      render: PropTypes.func,
+    })
+  ).isRequired,
+  token: PropTypes.string.isRequired,
+};
+
 export default AboutSyriaTable;
