@@ -1,0 +1,39 @@
+.AboutAddMore {
+    width: 250px;
+    height: 250px;
+    border: 1px solid;
+    position: relative;
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+}
+.AboutAddMore::after {
+    content: '';
+    display: block;
+    width: 2px;
+    height: inherit;
+    background-color: black;
+    position: absolute;
+    left: 50%;
+    top: 0;
+}
+.AboutAddMore::before {
+    content: '';
+    width: inherit;
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+}
+.aboutImgMore {
+    /* width: 100px;
+    height: 100px; */
+}
+.AboutMoreH {  
+    height: 50%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

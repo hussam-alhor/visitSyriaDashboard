@@ -7,7 +7,7 @@ import GenericEditForm from '../../sharedComponents/GenericEditForm';
 const EditRestaurants = () => {
     const { restaurantId } = useParams();
   
-
+//${restaurantId}
     const navigate = useNavigate();
     const [initialData, setInitialData] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -15,7 +15,7 @@ const EditRestaurants = () => {
     useEffect(() => {
         const fetchInitialData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/restaurants/${restaurantId}`);
+                const response = await axios.get(`http://localhost:8000/api/restaurants/1`);
                 setInitialData(response.data);
                 setLoading(false);
               console.log(response.data);
@@ -56,7 +56,7 @@ const EditRestaurants = () => {
                 initialInternalImage={initialData.interior_photos}
                 initialSiteImages={initialData.more_images}
                 entityType="restaurant" // For restaurant
-                url={`http://localhost:8000/api/restaurants/${restaurantId}`} // Use template literal
+                url={`http://localhost:8000/api/restaurants/1`} // Use template literal
         
             />
         </div>
