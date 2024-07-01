@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
 const AboutSyriaTable = ({ apiEndpoint, columns, token }) => {
+
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -26,6 +27,7 @@ const AboutSyriaTable = ({ apiEndpoint, columns, token }) => {
     })
     .then(response => {
       setData(response.data.data || []);
+      console.log(response.data.data);
       setTotalPages(response.data.last_page || 1);
     })
     .catch(error => {
@@ -67,6 +69,7 @@ const AboutSyriaTable = ({ apiEndpoint, columns, token }) => {
             </Form.Select>
           </div>
         </div>
+
         <Table striped bordered hover responsive className="custom-table">
           <thead>
             <tr>
