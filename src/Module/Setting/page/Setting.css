@@ -1,0 +1,94 @@
+
+.setting-container{
+  /* margin-top: 51px !important; */
+  background-color: #FFFFFF;
+  margin: 51px 31px 49px 104px !important;
+ 
+
+}
+.rounded-circle{
+    width: 100px ;
+    height: 100px ;
+    border: 1px !important;
+    border-color: #9F9A9A !important;
+ 
+
+
+
+
+}
+/* .as-img{
+    margin-bottom: 30% !important;
+    align-items: center !important;
+    max-width: 90px !important;
+    border: 1px !important;
+    border-color: #9F9A9A !important;
+} */
+
+.col_img{
+  display: flex;
+  flex-direction: column;
+  
+}
+.col_img span{
+    margin-right: -11px !important;
+    margin-bottom: 10 px !important;
+}
+.col_form{
+  display: flex;
+
+}
+.setting_row{
+  display: flex !important;
+  align-items: center !important;
+  margin-left: 18px !important;
+  padding: 22px 47px 36px 0px !important;
+
+
+
+  
+}
+.col_form{
+  align-items: center !important;
+
+}
+
+.Edit_btn{
+width: 137.33px!important;
+top: 224px!important;
+left: 881px;
+gap: 0px !important;
+border-radius: 5.33px!important;
+opacity: 0px!important;
+text-align: center !important;
+background-color: #57DEB0 !important;
+border: none !important;
+color: #000 !important;
+margin-left: 15.33px !important;
+
+
+}
+.Delete_btn{
+width: 137.33px!important;
+top: 224px!important;
+left: 728.33px!important;
+gap: 0px!important;
+border-radius: 5.33px!important;
+opacity: 0px!important;
+background-color:white!important;
+color: #000!important;
+border: 1px solid #9F9A9A!important
+
+
+}
+.pass_form{
+width: 445px !important;
+
+border-radius: 8px !important;
+opacity: 0px;
+box-shadow: none !important;
+border-color: #9F9A9A !important;
+border: 1px;
+
+
+}

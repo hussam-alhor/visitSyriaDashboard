@@ -60,9 +60,9 @@ const SideBar = () => {
             <span>المعالم السياحية</span>
             <img className='sideBarDropIcon landMarkIcon' src={down}></img>
             </NavLink>
-            <NavDropdown  className='SidBarDrop sideBarDropLand' id="basic-nav-dropdown" >
+            <NavDropdown  className='SidBarDrop sideBarDropLand' id="basic-nav-dropdown">
               <NavLink to={'/landMarksManagment'}> <span className='sideBarSpanLand'>إدارة المعالم السياحية</span> </NavLink>
-              <NavLink to={'/landMarksReports'}> <span className='sideBarSpanLand's>تقارير المعالم السياحية</span> </NavLink>
+              <NavLink to={'/landMarksReports'}> <span className='sideBarSpanLand'>تقارير المعالم السياحية</span> </NavLink>
             </NavDropdown>
 
             <NavLink to={'/Blogs'}>
