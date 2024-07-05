@@ -4,7 +4,7 @@ import axios from 'axios';
 import './genericEdit.css';
 import addIcon from '../../../public/assets/img/add.svg';
 import imageIcon from '../../../public/assets/img/image.svg';
-import { RiEdit2Line } from "react-icons/ri";
+import pen from '../../../public/assets/img/pen.svg';
 
 const GenericEditForm = ({
   nameLabel,
@@ -85,7 +85,7 @@ const GenericEditForm = ({
     console.log('Form data before submission:', formData); // Log the form data
 
     try {
- console.log(url);
+     console.log(url);
       const response = await axios.put(url, formData);
       console.log('Submitted data:', formData); // Log the submitted data
       console.log('Response:', response.data); // Log the response from the server
@@ -170,7 +170,8 @@ const GenericEditForm = ({
                   onChange={handleImageChange(setExternalImage)}
                   className="form-control-file d-none"
                 />
-                <RiEdit2Line className="ml-2 edit-icon" />
+                <img src={pen} alt="" className="ml-2 edit-icon" />
+               
               </Col>
             </Row>
           </Form.Group>
@@ -191,7 +192,8 @@ const GenericEditForm = ({
                   onChange={handleImageChange(setInternalImage)}
                   className="form-control-file d-none"
                 />
-                <RiEdit2Line className="ml-2 edit-icon" />
+                <img src={pen} alt="" className="ml-2 edit-icon" />
+               
               </Col>
             </Row>
           </Form.Group>
@@ -214,7 +216,8 @@ const GenericEditForm = ({
                     onChange={handleImageChange(setMenuImage)}
                     className="form-control-file d-none"
                   />
-                  <RiEdit2Line className="ml-2 edit-icon" />
+                  <img src={pen} alt="" className="ml-2 edit-icon" />
+                  
                 </Col>
               </Row>
             </Form.Group>
@@ -240,7 +243,8 @@ const GenericEditForm = ({
                     onChange={handleSiteImageChange(index)}
                     className="form-control-file d-none"
                   />
-                  <RiEdit2Line className="ml-2 edit-icon" />
+                  <img src={pen} alt="" className="ml-2 edit-icon" />
+                  
                 </Col>
               ))}
               <Col xs={6} md={4} className="d-flex align-items-center add-site-image-container">

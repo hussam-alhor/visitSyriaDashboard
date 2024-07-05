@@ -7,7 +7,7 @@ import GenericEditForm from '../../sharedComponents/GenericEditForm';
 const EditRestaurants = () => {
     const { restaurantId } = useParams();
   
-
+//${restaurantId}
     const navigate = useNavigate();
     const [initialData, setInitialData] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -56,7 +56,6 @@ const EditRestaurants = () => {
                 initialInternalImage={initialData.interior_photos}
                 initialSiteImages={initialData.more_images}
                 entityType="restaurant" // For restaurant
-      
                 url={`http://localhost:8000/api/restaurants/${restaurantId}`} // Use template literal
         
             />
