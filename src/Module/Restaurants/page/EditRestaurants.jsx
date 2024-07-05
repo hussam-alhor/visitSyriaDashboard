@@ -11,11 +11,11 @@ const EditRestaurants = () => {
     const navigate = useNavigate();
     const [initialData, setInitialData] = useState(null);
     const [loading, setLoading] = useState(true);
-
+   console.log(restaurantId)
     useEffect(() => {
         const fetchInitialData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/restaurants/${restaurantId}`);
+                const response = await axios.get(`http://localhost:8000/api/show_restaurant/${restaurantId}`);
                 setInitialData(response.data);
                 setLoading(false);
               console.log(response.data);
@@ -56,7 +56,7 @@ const EditRestaurants = () => {
                 initialInternalImage={initialData.interior_photos}
                 initialSiteImages={initialData.more_images}
                 entityType="restaurant" // For restaurant
-                url={`http://localhost:8000/api/restaurants/${restaurantId}`} // Use template literal
+                url={`http://localhost:8000/api/Edit_restaurant/${restaurantId}`} // Use template literal
         
             />
         </div>
