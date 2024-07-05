@@ -85,7 +85,7 @@ const GenericEditForm = ({
     console.log('Form data before submission:', formData); // Log the form data
 
     try {
- console.log(url);
+     console.log(url);
       const response = await axios.put(url, formData);
       console.log('Submitted data:', formData); // Log the submitted data
       console.log('Response:', response.data); // Log the response from the server

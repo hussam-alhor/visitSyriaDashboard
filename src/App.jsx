@@ -29,6 +29,8 @@ import ReactDOM from 'react-dom';
 
 import { Container, Row, Col } from 'react-bootstrap';
 import EditRestaurants from './Module/Restaurants/page/EditRestaurants'
+import AboutSyriaAdd from './Module/AboutSyriaManagment/page/AboutSyriaAdd'
+import AboutSyriaEdit from './Module/AboutSyriaManagment/page/AboutSyriaEdit'
 
     
 
@@ -36,11 +38,16 @@ const App = () => {
 
 
   return ( 
-    <> <NavBar/><Routes>
+    <> 
+    <NavBar/>
+    <Routes>
     <Route path='/' element={<Login/>} />
     <Route path='/home' element={<ShowDashboard/>} />
 
     <Route path='/AboutSyria' element={<ShowAboutSyriaManagment/>} />
+    <Route path='/AboutSyriaAdd' element={<AboutSyriaAdd/>} />
+    <Route path='/AboutSyriaEdit' element={<AboutSyriaEdit/>} />
+
 
     <Route path='/hotels' element={<ShowHotels/>} />
     <Route path='/hotelsManagment' element={<ShowHotelsManagment/>} />
