@@ -13,9 +13,9 @@ const ShowRestaurants = () => {
       }, [] )
     const fetchData = async ()=> {
       try {
-        const response = await  axios.get( 'http://127.0.0.1:8000/api/all_Restaurants')
-        // console.log(response.data)
-        setData (response.data)
+        const response = await  axios.get( 'http://127.0.0.1:8000/api/all_Restaurants');
+      console.log(response.data);
+        setData (response.data);
       } catch (error) {
         console.error("There was an error fetching the data!", error);
       }
@@ -31,6 +31,7 @@ const ShowRestaurants = () => {
     const deleteRow = async ()=> {
       try {
         axios.delete(`http://127.0.0.1:8000/api/delete_restaurant/${id.map(i => i)}`)
+       
         fetchData();
         // console.log('hello')
       } catch (error) {
