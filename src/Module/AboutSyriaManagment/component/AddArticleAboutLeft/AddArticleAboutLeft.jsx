@@ -8,6 +8,8 @@ import AddMorePhoto from '../AddMorePhoto/AddMorePhoto';
 const AddArticleAboutLeft = () => {
 
   const [selectImg, setSelectImg] = useState('')
+  const [showMore, setShowMore] = useState(false)
+  const [setButton, setsetButton] = useState()
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -17,6 +19,23 @@ const AddArticleAboutLeft = () => {
   }
   const fileRef = useRef(null)
 
+  const [val, setVal] = useState(Array(10).fill(<AddMorePhoto/>))
+
+  const HandleClick = (index) => {
+    // const updateVal = [...val]
+    // updateVal[index] = <AddMorePhoto/> ;
+    // setVal(updateVal)
+  }
+
+  // const fal = () => {
+  //   setShowMore(false)
+  // }
+  // const More = ()=> {
+  // // setShowMore(!showMore)
+  //   setsetButton(<AddMorePhoto/>)
+    
+  //   setButton
+  // }
   return (
     <div>
         <Form.Group controlId="formFile" className="mb-3">
@@ -40,7 +59,17 @@ const AddArticleAboutLeft = () => {
             </>
           }
        </Form.Group>
-       <AddMorePhoto />
+       
+       <Form.Label>صور إضافية </Form.Label>
+       <div className='addMoreFlex'>
+          {
+            val.map((value) => (
+              <>
+               {value}
+              </>
+            ) ) 
+          }
+       </div>
     </div>
   )
 }
