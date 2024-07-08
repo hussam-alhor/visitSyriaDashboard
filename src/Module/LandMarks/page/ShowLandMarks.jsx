@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import SideBar from '../../SideBar/SideBar'
 import axios from 'axios'
 import AboutSyriaTable from '../../AboutSyriaManagment/page/AboutSyriaTable'
-
+import { useNavigate } from 'react-router-dom';
 const ShowLandMarks = () => {
-  const [data, setData] = useState([])
-  
+  const [data, setData] = useState([]);
+  const navigate = useNavigate();
       useEffect ( ()=> {
 
         fetchData();
@@ -36,6 +36,9 @@ const ShowLandMarks = () => {
         console.error('Error deleting items:', error)
       }
     }
+    const editRow = (id) => {
+      navigate(`/landmark-edit/${id}`);
+    };
 
   return (
     <div className='sidFlex'>
@@ -61,8 +64,9 @@ const ShowLandMarks = () => {
       det5 = {id}
       det6= ''
       deleteRow = {deleteRow}
+      editRow={editRow}
       urlAdd = '/landMarksManagment'
-      urlEdit = '/restaurant-edit'
+      urlEdit = '/landmark-edit'
       
       />
       </div>

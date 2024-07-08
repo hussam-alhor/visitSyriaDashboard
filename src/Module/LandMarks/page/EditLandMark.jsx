@@ -4,21 +4,20 @@ import { useParams, useNavigate } from 'react-router-dom';
 import SideBar from '../../SideBar/SideBar';
 import GenericEditForm from '../../sharedComponents/GenericEditForm';
 
-const EditRestaurants = () => {
-    const { restaurantId } = useParams();
-  
-//${restaurantId}
+const EditLandMark = () => {
+    const { landmarkId } = useParams();
     const navigate = useNavigate();
     const [initialData, setInitialData] = useState(null);
     const [loading, setLoading] = useState(true);
-   console.log(restaurantId)
+
     useEffect(() => {
         const fetchInitialData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/show_restaurant/${restaurantId}`);
-                setInitialData(response.data);
+                const response = await axios.get(`http://localhost:8000/api/show_landMark/${landmarkId}`);
+                setInitialData(response.data.landmark);
+               
                 setLoading(false);
-            //   console.log(response.data.restaurant);
+                console.log('Fetched initial data:', response.data);
             } catch (error) {
                 console.error('Error fetching the initial data:', error);
                 setLoading(false);
@@ -26,8 +25,7 @@ const EditRestaurants = () => {
         };
 
         fetchInitialData();
-    }, [restaurantId]);
- 
+    }, [landmarkId]);
 
     if (loading) {
         return <div>Loading...</div>;
@@ -41,12 +39,12 @@ const EditRestaurants = () => {
         <div className='sidFlex'>
             <SideBar />
             <GenericEditForm
-                nameLabel="اسم المطعم"
-                locationLabel="موقع المطعم"
+                nameLabel="اسم المعلم السياحي"
+                locationLabel="موقع المعلم السياحي"
                 priceLabel="سعر الحجز"
                 mainDescriptionLabel="الوصف الأولي"
                 secondaryDescriptionLabel="الوصف الثانوي"
-                buttonLabel="تعديل مطعم"
+                buttonLabel="تعديل معلم"
                 initialName={initialData.name}
                 initialLocation={initialData.location}
                 initialPrice={initialData.price}
@@ -54,14 +52,12 @@ const EditRestaurants = () => {
                 initialSecondaryDescription={initialData.short_description}
                 initialExternalImage={initialData.exterior_photos}
                 initialInternalImage={initialData.interior_photos}
-                initialSiteImages={initialData.more_images}
-                entityType="restaurant" // For restaurant
-                url={`http://localhost:8000/api/Edit_restaurant/${restaurantId}`} // Use template literal
-        
+                initialSiteImages={[]}
+                entityType="landmark" 
+                url={`http://localhost:8000/api/Edit_landMark/${landmarkId}`}
             />
         </div>
     );
 };
-//{initialData.more_images}["public/assets/img/hotel.svg"]
 
-export default EditRestaurants;
+export default EditLandMark;
