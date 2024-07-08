@@ -1,8 +1,26 @@
 import React from 'react'
+import SideBar from '../../SideBar/SideBar'
+import { Col, Row } from 'react-bootstrap'
+import AddArticleRight from '../component/AddAricleAboutRight/AddArticleRight'
+import AddArticleAboutLeft from '../component/AddArticleAboutLeft/AddArticleAboutLeft'
 
 const AboutSyriaAdd = () => {
   return (
-    <div>AboutSyriaAdd</div>
+    <div className="sidFlex">
+       <SideBar />
+
+      <div className="showAboutContent">
+      <Row>
+          <Col sm='5'>
+          <AddArticleRight/>
+          </Col>
+          <Col sm='5'>
+            <AddArticleAboutLeft/>
+          </Col>
+      </Row>
+      </div> 
+
+    </div>
   )
 }
 

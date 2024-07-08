@@ -25,3 +25,6 @@
     color: rgba(159, 154, 154, 1) !important; 
     cursor: pointer;
 }
+.addMoreFlex {
+    display : flex;
+}
