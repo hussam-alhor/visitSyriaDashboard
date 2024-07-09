@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import SideBar from '../../SideBar/SideBar'
 import axios from 'axios'
 import AboutSyriaTable from '../../AboutSyriaManagment/page/AboutSyriaTable'
-import AddComponent from '../../AddComponent/AddComponent'
+// import AddComponent from '../../AddComponent/AddComponent'
 
 const ShowHotels = () => {
 
