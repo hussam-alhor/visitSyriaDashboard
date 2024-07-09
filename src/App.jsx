@@ -31,6 +31,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import EditRestaurants from './Module/Restaurants/page/EditRestaurants'
 import AboutSyriaAdd from './Module/AboutSyriaManagment/page/AboutSyriaAdd'
 import AboutSyriaEdit from './Module/AboutSyriaManagment/page/AboutSyriaEdit'
+import AddComponent from './Module/AddComponent/AddComponent'
 
     
 
@@ -50,7 +51,7 @@ const App = () => {
 
 
     <Route path='/hotels' element={<ShowHotels/>} />
-    <Route path='/hotelsManagment' element={<ShowHotelsManagment/>} />
+    <Route path='/hotelsManagment' element={<ShowHotelsManagment/>}/>
     <Route path='/hotelsReports' element={<ShowHotelsReports/>} /> 
 
     <Route path='/restaurants' element={<ShowRestaurants/>} />

@@ -3,8 +3,53 @@ import './AddComponent.css'
 import imageIcon from '../../../public/assets/img/imageIcon.png'
 import plusImage from '../../../public/assets/img/plusImage.png'
 import axios from 'axios';
-export default function AddComponent({ nameSection, location, price, firstDescrption, secondDescription, AddNameSection, Menu, route }) {
+import SideBar from '../SideBar/SideBar';
+export default function AddComponent({ nameSection,
+     location,
+     price,
+     firstDescrption,
+     secondDescription, 
+     AddNameSection, 
+     Menu, 
+     route ,
+    //  handleSubmit ,
+    //  nameform ,
+    //  locationform,
+    //  priceform,
+    //  firstDescrptionform,
+    //  secondDescrptionform,
+    //  servicesform ,
+    //  interior_photosform ,
+    //  exterior_photosform
+    }) {
     // State for form data and error messages
+
+
+    const [user_id, setUser_id] = useState(1)
+    const [ nameform , setNameForm] = useState()
+    const [  locationform , setLocationForm] = useState()
+    const [  short_descriptionform , setShort_descriptionForm] = useState()
+    const [  long_descriptionform , setLong_descriptionForm] = useState()
+    const [  servicesform , setServices] = useState("")
+    const [  priceform , setPriceForm] = useState()
+    const [  interior_photosform , setInterior_photosForm] = useState()
+    const [  exterior_photosform , setExterior_photosForm] = useState()
+  
+    const handleSubmit = async (e)=> {
+      e.preventDefault();
+      let response = await axios.post('http://127.0.0.1:8000/api/add_hotel' , {
+        user_id:user_id,
+        name: nameform,
+        location: locationform,
+        short_description: short_descriptionform ,
+        long_description:long_descriptionform,
+        interior_photos: interior_photosform,
+        exterior_photos: exterior_photosform,
+        services:servicesform,
+        price:priceform
+      })
+      console.log(response.data)
+    }
 
     const [errors, setErrors] = useState({
         nameSection: '',
@@ -81,66 +126,98 @@ export default function AddComponent({ nameSection, location, price, firstDescrp
 
     // Validate form data and submit
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        let valid = true;
-        const newErrors = { nameSection: '', location: '', price: '', firstDescrption: '', secondDescription: '' };
-        if (formData.nameSection.trim() == '') {
-            newErrors.nameSection = 'هذا الحقل مطلوب';
-            valid = false;
-        }
-        if (formData.location.trim() == '') {
-            newErrors.location = 'هذا الحقل مطلوب';
-            valid = false;
-        }
-        if (formData.firstDescrption.trim() == '') {
-            newErrors.firstDescrption = 'هذا الحقل مطلوب';
-            valid = false;
-        }
-        if (formData.secondDescription.trim() == '') {
-            newErrors.secondDescription = '*هذا الحقل مطلوب*';
-            valid = false;
-        }
-        if (formData.price.trim() == '') {
-            newErrors.price = 'هذا الحقل مطلوب';
-            valid = false;
-        }
-        setErrors(newErrors);
-        if (valid) {
-            console.log(formData)
-        }
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     let valid = true;
+    //     const newErrors = { nameSection: '', location: '', price: '', firstDescrption: '', secondDescription: '' };
+    //     if (formData.nameSection.trim() == '') {
+    //         newErrors.nameSection = 'هذا الحقل مطلوب';
+    //         valid = false;
+    //     }
+    //     if (formData.location.trim() == '') {
+    //         newErrors.location = 'هذا الحقل مطلوب';
+    //         valid = false;
+    //     }
+    //     if (formData.firstDescrption.trim() == '') {
+    //         newErrors.firstDescrption = 'هذا الحقل مطلوب';
+    //         valid = false;
+    //     }
+    //     if (formData.secondDescription.trim() == '') {
+    //         newErrors.secondDescription = '*هذا الحقل مطلوب*';
+    //         valid = false;
+    //     }
+    //     if (formData.price.trim() == '') {
+    //         newErrors.price = 'هذا الحقل مطلوب';
+    //         valid = false;
+    //     }
+    //     setErrors(newErrors);
+    //     if (valid) {
+    //         console.log(formData)
+    //     }
 
-    }
+    // }
 
     // Ensure useEffect runs when formData changes
     return (
-
+     <div className='sidFlex'>
+       {/* <SideBar/> */}
         <div className='addComponent'>
             <form onSubmit={handleSubmit} action="" className='addForm'>
                 <div className="addInfo">
                     <div className="input-info">
                         <label htmlFor="nameSection">{nameSection}</label>
-                        <input onChange={handleChange} value={formData.nameSection} type="text" name="nameSection" id="nameSection" />
+                        <input 
+                         onChange={(e)=> setNameForm(e.target.value)}
+                         value={nameform} 
+                         type="text"
+                         name="nameSection"
+                         id="nameSection" />
                         {errors.nameSection && <p className='errorMessage'>{errors.nameSection}</p>}
                     </div>
                     <div className="input-info">
                         <label htmlFor="location">{location}</label>
-                        <input value={formData.location} onChange={handleChange} type="text" name="location" id="location" />
+                        <input 
+                         value={locationform}
+                         onChange={(e)=> setLocationForm(e.target.value)}
+                         type="text"
+                         name="location"
+                         id="location" 
+                         />
                         {errors.location && <p className='errorMessage'>{errors.location}</p>}
                     </div>
                     <div className="input-info">
                         <label htmlFor="price">{price}</label>
-                        <input value={formData.price} onChange={handleChange} type="text" name="price" id="price" />
+                        <input 
+                         value={priceform}
+                         onChange={(e)=> setPriceForm(e.target.value)}
+                         type="text"
+                         name="price"
+                         id="price" 
+                         />
                         {errors.price && <p className='errorMessage'>{errors.price}</p>}
                     </div>
                     <div className="input-info">
                         <label htmlFor="firstDescrption">{firstDescrption}</label>
-                        <input value={formData.firstDescrption} onChange={handleChange} style={{ height: '70px' }} type="text" name="firstDescrption" id="firstDescrption" />
+                        <input
+                         value={short_descriptionform}
+                         onChange={ (e)=> setShort_descriptionForm(e.target.value)}
+                         style={{ height: '70px' }}
+                         type="text"
+                         name="firstDescrption"
+                         id="firstDescrption" 
+                         />
                         {errors.firstDescrption && <p className='errorMessage'>{errors.firstDescrption}</p>}
                     </div>
                     <div className="input-info">
                         <label htmlFor="secondDescription">{secondDescription}</label>
-                        <input value={formData.secondDescription} onChange={handleChange} style={{ height: '140px' }} type="text" name="secondDescription" id="secondDescription" />
+                        <input 
+                         value={long_descriptionform}
+                         onChange={(e)=> setLong_descriptionForm(e.target.value)}
+                         style={{ height: '140px' }}
+                         type="text"
+                         name="secondDescription"
+                         id="secondDescription"
+                          />
                         {errors.secondDescription && <p className='errorMessage'>{errors.secondDescription}</p>}
                     </div>
                     <input className='addSubmit' type="submit" name="" value={AddNameSection} id="" />
@@ -155,7 +232,8 @@ export default function AddComponent({ nameSection, location, price, firstDescrp
                             accept="image/*"
                             style={{ display: 'none' }}
                             ref={exteriorInputRef}
-                            onChange={(e) => handleFileChange(e, 'exterior')}
+                            value={exterior_photosform}
+                            onChange={(e) => setExterior_photosForm(e.target.value)}
                         />
                         <img src={formData.exteriorImage ? URL.createObjectURL(formData.exteriorImage) : imageIcon} alt="Exterior" onClick={() => handleFileClick(exteriorInputRef)} style={{ cursor: 'pointer' }} />
                         {/* {imageNames.exteriorImage && <p>{imageNames.exteriorImage}</p>} */}
@@ -168,7 +246,8 @@ export default function AddComponent({ nameSection, location, price, firstDescrp
                             accept="image/*"
                             style={{ display: 'none' }}
                             ref={interiorInputRef}
-                            onChange={(e) => handleFileChange(e, 'interior')}
+                            value={interior_photosform}
+                            onChange={(e) => setInterior_photosForm(e.target.value) }
                         />
                         <img src={formData.interiorImage ? URL.createObjectURL(formData.interiorImage) : imageIcon} alt="Interior" onClick={() => handleFileClick(interiorInputRef)} style={{ cursor: 'pointer' }} />
                         {/* {imageNames.interiorImage && <p>{imageNames.interiorImage}</p>} */}
@@ -181,7 +260,8 @@ export default function AddComponent({ nameSection, location, price, firstDescrp
                             accept="image/*"
                             style={{ display: 'none' }}
                             ref={MenuInputRef}
-                            onChange={(e) => handleFileChange(e, 'menu')}
+                            value={interior_photosform}
+                            onChange={(e) => setInterior_photosForm(e.target.value) }
                         />
                         <img src={formData.MenuImage ? URL.createObjectURL(formData.MenuImage) : imageIcon} alt="Menu" onClick={() => handleFileClick(MenuInputRef)} style={{ cursor: 'pointer' }} />
                         {/* {imageNames.MenuImage && <p>{imageNames.MenuImage}</p>} */}
@@ -200,7 +280,8 @@ export default function AddComponent({ nameSection, location, price, firstDescrp
                                         accept="image/*"
                                         style={{ display: 'none' }}
                                         ref={inputRef}
-                                        onChange={(e) => handleFileChange(e, 'other', index)}
+                                        value={interior_photosform}
+                                        onChange={(e) =>  setInterior_photosForm(e.target.value)}
                                     />
                                     <img src={formData.otherImages[index] ? URL.createObjectURL(formData.otherImages[index]) : imageIcon} alt={`Other ${index + 1}`} onClick={() => handleFileClick(inputRef)} style={{ cursor: 'pointer' }} />
                                     {/* {imageNames.otherImages[index] && <p>{imageNames.otherImages[index]}</p>} */}
@@ -211,6 +292,7 @@ export default function AddComponent({ nameSection, location, price, firstDescrp
 
                 </div>
             </form>
+         </div>
         </div>
     )
 }
