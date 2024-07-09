@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Button, Row, Col, Image } from 'react-bootstrap';
 import axios from 'axios';
 import './genericEdit.css';
@@ -7,6 +7,7 @@ import imageIcon from '../../../public/assets/img/image.svg';
 import pen from '../../../public/assets/img/pen.svg';
 
 const GenericEditForm = ({
+  
   nameLabel,
   locationLabel,
   priceLabel,
@@ -24,9 +25,8 @@ const GenericEditForm = ({
   initialSiteImages,
   entityType,
   url,
-   // Accept URL as a prop
-
 }) => {
+  console.log('Initial Name:', initialName); // Add this line
   const [name, setName] = useState(initialName);
   const [location, setLocation] = useState(initialLocation);
   const [price, setPrice] = useState(initialPrice);
@@ -36,7 +36,30 @@ const GenericEditForm = ({
   const [internalImage, setInternalImage] = useState(initialInternalImage);
   const [siteImages, setSiteImages] = useState(initialSiteImages);
   const [menuImage, setMenuImage] = useState(initialMenuImage);
- 
+
+  useEffect(() => {
+
+    setName(initialName);
+    setLocation(initialLocation);
+    setPrice(initialPrice);
+    setMainDescription(initialMainDescription);
+    setSecondaryDescription(initialSecondaryDescription);
+    setExternalImage(initialExternalImage);
+    setInternalImage(initialInternalImage);
+    setSiteImages(initialSiteImages);
+    setMenuImage(initialMenuImage);
+  }, [
+    initialName,
+    initialLocation,
+    initialPrice,
+    initialMainDescription,
+    initialSecondaryDescription,
+    initialExternalImage,
+    initialInternalImage,
+    initialSiteImages,
+    initialMenuImage,
+  ]);
+
   const handleImageChange = (setter) => (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -82,16 +105,13 @@ const GenericEditForm = ({
       siteImages,
       menuImage
     };
-    console.log('Form data before submission:', formData); // Log the form data
 
     try {
-     console.log(url);
       const response = await axios.put(url, formData);
-      console.log('Submitted data:', formData); // Log the submitted data
-      console.log('Response:', response.data); // Log the response from the server
-    
+      console.log('Submitted data:', formData);
+      console.log('Response:', response.data);
     } catch (error) {
-      console.error('Error updating the restaurant:', error);
+      console.error('Error updating the item:', error);
     }
   };
 
@@ -171,7 +191,6 @@ const GenericEditForm = ({
                   className="form-control-file d-none"
                 />
                 <img src={pen} alt="" className="ml-2 edit-icon" />
-               
               </Col>
             </Row>
           </Form.Group>
@@ -193,11 +212,9 @@ const GenericEditForm = ({
                   className="form-control-file d-none"
                 />
                 <img src={pen} alt="" className="ml-2 edit-icon" />
-               
               </Col>
             </Row>
           </Form.Group>
-
           {entityType === 'restaurant' && (
             <Form.Group controlId="formMenuImage" className="form-group-spacing">
               <Row className="align-items-center">
@@ -217,12 +234,10 @@ const GenericEditForm = ({
                     className="form-control-file d-none"
                   />
                   <img src={pen} alt="" className="ml-2 edit-icon" />
-                  
                 </Col>
               </Row>
             </Form.Group>
           )}
-
           <Form.Group controlId="formSiteImages" className="form-group-spacing">
             <Row className="align-items-center">
               <Col xs={12}>
@@ -244,7 +259,6 @@ const GenericEditForm = ({
                     className="form-control-file d-none"
                   />
                   <img src={pen} alt="" className="ml-2 edit-icon" />
-                  
                 </Col>
               ))}
               <Col xs={6} md={4} className="d-flex align-items-center add-site-image-container">

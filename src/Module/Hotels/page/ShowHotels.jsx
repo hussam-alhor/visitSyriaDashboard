@@ -6,7 +6,8 @@ import AddComponent from '../../AddComponent/AddComponent'
 
 const ShowHotels = () => {
 
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
+  const navigate = useNavigate();
   
       useEffect ( ()=> {
 
@@ -38,6 +39,11 @@ const ShowHotels = () => {
         console.error('Error deleting items:', error)
       }
     }
+    const editRow = (id) => {
+      navigate(`/hotel-edit/${id}`);
+
+    };
+  
   
 
   return (
@@ -62,8 +68,9 @@ const ShowHotels = () => {
       det5 = {id}
       det6= {price && '$$' || ''}
       deleteRow = {deleteRow}
+      editRow={editRow}
       urlAdd = '/hotelsManagment'
-      urlEdit = '/restaurant-edit'
+      urlEdit = '/hotel-edit'
       
       />
       </div>

@@ -29,6 +29,8 @@ import ReactDOM from 'react-dom';
 
 import { Container, Row, Col } from 'react-bootstrap';
 import EditRestaurants from './Module/Restaurants/page/EditRestaurants'
+import EditHotel from './Module/Hotels/page/EditHotel'
+import EditLandMark from './Module/LandMarks/page/EditLandMark'
 import AboutSyriaAdd from './Module/AboutSyriaManagment/page/AboutSyriaAdd'
 import AboutSyriaEdit from './Module/AboutSyriaManagment/page/AboutSyriaEdit'
 import AddComponent from './Module/AddComponent/AddComponent'
@@ -49,21 +51,22 @@ const App = () => {
     <Route path='/AboutSyriaAdd' element={<AboutSyriaAdd/>} />
     <Route path='/AboutSyriaEdit' element={<AboutSyriaEdit/>} />
 
-
     <Route path='/hotels' element={<ShowHotels/>} />
     <Route path='/hotelsManagment' element={<ShowHotelsManagment/>}/>
     <Route path='/hotelsReports' element={<ShowHotelsReports/>} /> 
+    <Route path="/hotel-edit/:hotelId" element={<EditHotel />} />
+
 
     <Route path='/restaurants' element={<ShowRestaurants/>} />
     <Route path='/restaurantsManagment' element={<ShowRestaurantsManagment/>} />
     <Route path='/restaurantsReports' element={<ShowRestaurantsReports/>} />
-    <Route path='/restaurant-edit' element={<EditRestaurants/>} />
-
+    <Route path="/restaurant-edit/:restaurantId" element={<EditRestaurants />} />
 
 
     <Route path='/landMarks' element={<ShowLandMarks/>} />
     <Route path='/landMarksManagment' element={<ShowLandMarksManagment/>} />
     <Route path='/landMarksReports' element={<ShowLandMarksReports/>} />
+    <Route path="/landmark-edit/:landmarkId" element={<EditLandMark />} />
 
     <Route path='/Blogs' element={<ShowBlogs/>} />
     <Route path='/BlogManagment' element={<ShowBlogManagment/>} />
