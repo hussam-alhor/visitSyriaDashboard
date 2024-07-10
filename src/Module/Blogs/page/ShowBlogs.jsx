@@ -37,9 +37,9 @@ const ShowBlogs = () => {
     let id = data.map(i=> i.id)
     // let price = data.map(i => i.interior_photos)
     
-    const deleteRow = async ()=> {
+    const deleteRow = async (id)=> {
       try {
-        axios.delete(`http://127.0.0.1:8000/api/delete_blog/${id.map(i => i)}`)
+        axios.delete(`http://127.0.0.1:8000/api/delete_blog/${id}`, config)
         fetchData();
       } catch (error) {
         console.error('Error deleting items:', error)

@@ -38,7 +38,7 @@ const ShowRestaurants = () => {
   
   const deleteRow = async (id) => {
     try {
-      await axios.delete(`http://127.0.0.1:8000/api/delete_restaurant/${id}`);
+      await axios.delete(`http://127.0.0.1:8000/api/delete_restaurant/${id}`, config);
       fetchData();
     } catch (error) {
       console.error('Error deleting item:', error);
