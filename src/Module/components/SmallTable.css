@@ -1,0 +1,12 @@
+.SmallTable .table{
+    --bs-table-bg:unset !important;
+    border-radius: 5px !important;
+    box-shadow: 0px 0px 2px black;
+    white-space: nowrap;
+    padding: 10px;
+}
+
+.SmallTable thead{
+    background-color: rgba(141, 211, 187, 0.3) !important;
+    ;
+}

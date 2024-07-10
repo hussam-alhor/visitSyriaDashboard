@@ -1,0 +1,18 @@
+.ReportTemplate {
+    min-width: 80%;
+    padding: 20px;
+}
+
+.ReportTemplate .col-sm-4{
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+.ReportTemplate .chart-container{
+    padding: 40px;
+}
+
+.ReportTemplate .myCountCard{
+    justify-content: space-evenly;
+
+}

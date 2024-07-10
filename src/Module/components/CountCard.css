@@ -1,0 +1,15 @@
+.CountCard.card {
+    width: 16rem ;
+    height: 8rem;
+    margin: 20px;
+}
+
+.CountCard .card-body .row{
+    width:min-content !important;
+    flex-wrap: unset !important;
+}
+
+.CountCard .card-body .card-title{
+    font-size: 2.5rem !important;
+
+}

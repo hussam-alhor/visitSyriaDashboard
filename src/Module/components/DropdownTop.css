@@ -1,0 +1,19 @@
+.DropdownTop .btn-primary{
+    --bs-btn-bg: #FFFFFF !important;
+    --bs-btn-color: #112211;
+    --bs-btn-border-color: #FFFFFF;
+    --bs-btn-hover-bg: #FFFFFF;
+    --bs-btn-active-bg:#FFFFFF;
+    --bs-btn-hover-border-color: #FFFFFF;
+    --bs-btn-hover-color: #112211;
+    --bs-btn-active-border-color:#FFFFFF;
+    --bs-btn-active-color: #112211;
+
+    width: 177px;
+    height: 48px;
+    margin-bottom: 20px;
+}
+
+.DropdownTop .dropdown-toggle::after {
+    display: none;
+}
