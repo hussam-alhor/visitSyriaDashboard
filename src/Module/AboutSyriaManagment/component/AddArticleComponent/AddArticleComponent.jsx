@@ -36,14 +36,11 @@ const AddArticleComponent = ({
   };
   const [name, setName] = useState('');
   const [typeArt, setTypeArt] = useState('');
-  // const [price, setPrice] = useState();
   const [mainDescription, setMainDescription] = useState('');
-  // const [secondaryDescription, setSecondaryDescription] = useState('');
   const [externalImage, setExternalImage] = useState();
-  // const [internalImage, setInternalImage] = useState(null);
   const [siteImages, setSiteImages] = useState([]);
   const token = window.localStorage.getItem('token')
-  // console.log(token)
+
   const config = {
     headers : {
       'Authorization': `Bearer ${token}`
@@ -52,17 +49,14 @@ const AddArticleComponent = ({
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    // formData.append('user_id' , 1)
+    
     formData.append('title', name);
     formData.append('category', typeArt);
     formData.append('content', mainDescription);
     formData.append('main_image', externalImage);
     formData.append('main_image', siteImages);
     formData.append('user_id', 1);
-    // formData.append('long_description', secondaryDescription);
-    // formData.append('exterior_photos', externalImage)
-    // formData.append('interior_photos', siteImages)
-
+   
     try {
       const response = await axios.post(url, formData , config);
       console.log('Submitted data:', formData);

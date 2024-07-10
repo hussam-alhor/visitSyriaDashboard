@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react'
+import ArticleEdit from '../../AboutSyriaManagment/component/ArticleEdit/ArticleEdit'
+import SideBar from '../../SideBar/SideBar'
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import SideBar from '../../SideBar/SideBar';
-import ArticleEdit from '../component/ArticleEdit/ArticleEdit';
 
-const AboutSyriaEdit = () => {
-  const { AboutId } = useParams();
+
+const EditBlog = () => {
+
+    const { AboutId } = useParams();
     const token = window.localStorage.getItem('token')
   // console.log(token)
   const config = {
@@ -21,7 +23,7 @@ const AboutSyriaEdit = () => {
     useEffect(() => {
         const fetchInitialData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/show_post/${AboutId}` , config);
+                const response = await axios.get(`http://localhost:8000/api/show_bloge/${AboutId}` , config);
                 setInitialData(response.data.post);
                 setLoading(false);
               console.log(response.data);
@@ -52,13 +54,13 @@ const AboutSyriaEdit = () => {
         mainDescriptionLabel='محتوى المقال'
         buttonLabel='تعديل المقال'
         initialName={initialData.title}
-        initialtype={initialData.category}
+        initialtype= ''
         initialMainDescription={initialData.content}
         initialMainImage={initialData.main_image}
-        url={`http://localhost:8000/api/Edit_Post/${AboutId}`}
+        url={`http://localhost:8000/api/Blog/${AboutId}`}
       />
     </div>
   )
 }
 
-export default AboutSyriaEdit
+export default EditBlog

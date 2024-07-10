@@ -34,6 +34,7 @@ import EditLandMark from './Module/LandMarks/page/EditLandMark'
 import AboutSyriaAdd from './Module/AboutSyriaManagment/page/AboutSyriaAdd'
 import AboutSyriaEdit from './Module/AboutSyriaManagment/page/AboutSyriaEdit'
 import AddComponent from './Module/AddComponent/AddComponent'
+import EditBlog from './Module/Blogs/page/EditBlog'
 
     
 
@@ -49,7 +50,7 @@ const App = () => {
 
     <Route path='/AboutSyria' element={<ShowAboutSyriaManagment/>} />
     <Route path='/AboutSyriaAdd' element={<AboutSyriaAdd/>} />
-    <Route path='/AboutSyriaEdit' element={<AboutSyriaEdit/>} />
+    <Route path='/AboutSyriaEdit/:AboutId' element={<AboutSyriaEdit/>} />
 
     <Route path='/hotels' element={<ShowHotels/>} />
     <Route path='/hotelsManagment' element={<ShowHotelsManagment/>}/>
@@ -72,64 +73,12 @@ const App = () => {
     <Route path='/Blogs' element={<ShowBlogs/>} />
     <Route path='/BlogManagment' element={<ShowBlogManagment/>} />
     <Route path='/BlogReport' element={<ShowBlogReport/>} />
-    
+    <Route path='blog-edit/:blogId' element={<EditBlog/>} />
 
     <Route path='/setting' element={<Setting/>} />
 </Routes> 
 </> 
 )};
-//     <div className='editComponent'>
-//     <NavBar/>
- 
-// <div >
-//       <Row>
-//         <Col md={3} className='sidee'>
-//           <SideBar  />
-//         </Col>
-//         <Col md={9}>
-//         <GenericEditForm
-//   nameLabel="اسم المطعم"
-//   locationLabel="موقع المطعم"
-//   priceLabel="سعر الحجز"
-//   mainDescriptionLabel="الوصف الأولي"
-//   secondaryDescriptionLabel="الوصف الثانوي"
-//   buttonLabel="تعديل مطعم"
-//   initialName="وردة الشام"
-//   initialLocation="دمشق"
-//   initialPrice="5000"
-//   initialMainDescription="وصف رئيسي"
-//   initialSecondaryDescription="وصف ثانوي"
-//   initialExternalImage={null}
-//   initialInternalImage={null}
-//   intialMenueImage={'public/assets/img/restaurant.svg'}
-//   initialSiteImages={['public/assets/img/restaurant.svg','public/assets/img/home.svg']}
-//   entityType="restaurant" // For restaurant
-// />
-
-        /* <GenericEditForm
-  nameLabel="اسم الفندق"
-  locationLabel="موقع الفندق"
-  priceLabel="سعر الحجز"
-  mainDescriptionLabel="الوصف الأولي"
-  secondaryDescriptionLabel="الوصف الثانوي"
-  buttonLabel="تعديل فندق"
-  initialName="فندق دمشق"
-  initialLocation="دمشق"
-  initialPrice="10000"
-  initialMainDescription="وصف رئيسي"
-  initialSecondaryDescription="وصف ثانوي"
-  initialExternalImage={null}
-  initialInternalImage={null}
-  initialSiteImages={[]}
-  entityType="hotel" // For hotel
-/> */
-
-//         </Col>
-//       </Row>
-//       </div>
-//       </div>
-//   );
-// };
 
       
      
