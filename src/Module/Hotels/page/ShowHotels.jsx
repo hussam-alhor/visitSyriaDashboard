@@ -2,12 +2,21 @@ import React, { useEffect, useState } from 'react'
 import SideBar from '../../SideBar/SideBar'
 import axios from 'axios'
 import AboutSyriaTable from '../../AboutSyriaManagment/page/AboutSyriaTable'
+import { useNavigate } from 'react-router-dom'
 // import AddComponent from '../../AddComponent/AddComponent'
 
 const ShowHotels = () => {
 
   const [data, setData] = useState([]);
   const navigate = useNavigate();
+
+  const token = window.localStorage.getItem('token')
+  // console.log(token)
+  const config = {
+    headers : {
+      'Authorization': `Bearer ${token}`
+    }
+  }
   
       useEffect ( ()=> {
 
@@ -15,11 +24,11 @@ const ShowHotels = () => {
       }, [] )
     const fetchData = async ()=> {
       try {
-        const response = await  axios.get( 'http://127.0.0.1:8000/api/all_hotels')
-        // console.log(response.data)
+        const response = await  axios.get( 'http://127.0.0.1:8000/api/all_hotels' , config)
+        console.log(response)
         setData (response.data)
       } catch (error) {
-        console.error("There was an error fetching the data!", error);
+        console.error( error);
       }
     }
   

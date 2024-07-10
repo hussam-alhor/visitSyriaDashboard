@@ -2,10 +2,18 @@ import React, { useEffect, useState } from 'react'
 import SideBar from '../../SideBar/SideBar'
 import axios from 'axios'
 import AboutSyriaTable from '../../AboutSyriaManagment/page/AboutSyriaTable'
+import { useNavigate } from 'react-router-dom'
 
 const ShowBlogs = () => {
 
   const [data, setData] = useState([])
+  const token = window.localStorage.getItem('token')
+  // console.log(token)
+  const config = {
+    headers : {
+      'Authorization': `Bearer ${token}`
+    }
+  }
   
       useEffect ( ()=> {
 
@@ -13,7 +21,7 @@ const ShowBlogs = () => {
       }, [] )
     const fetchData = async ()=> {
       try {
-        const response = await  axios.get( 'http://127.0.0.1:8000/api/all_blogs')
+        const response = await  axios.get( 'http://127.0.0.1:8000/api/all_blogs' , config)
         console.log(response.data)
         setData (response.data.blog)
       } catch (error) {
@@ -37,7 +45,11 @@ const ShowBlogs = () => {
         console.error('Error deleting items:', error)
       }
     }
-
+    const navigate = useNavigate()
+  
+    const editRow = (id) => {
+      navigate(`/blog-edit/${id}`);
+    };
 
   return (
     <div className='sidFlex'>
@@ -65,8 +77,8 @@ const ShowBlogs = () => {
       det6= ''
       deleteRow = {deleteRow}
       urlAdd = '/BlogManagment'
-      urlEdit = '/restaurant-edit'
-      
+      urlEdit = '/blog-edit'
+      editRow = {editRow}
       />
       
       </div>

@@ -6,13 +6,21 @@ import { useNavigate } from 'react-router-dom';
 const ShowLandMarks = () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
+
+  const token = window.localStorage.getItem('token')
+  // console.log(token)
+  const config = {
+    headers : {
+      'Authorization': `Bearer ${token}`
+    }
+  }
       useEffect ( ()=> {
 
         fetchData();
       }, [] )
     const fetchData = async ()=> {
       try {
-        const response = await  axios.get( 'http://127.0.0.1:8000/api/all_landMarks')
+        const response = await  axios.get( 'http://127.0.0.1:8000/api/all_landMarks' , config)
         // console.log(response.data)
         setData (response.data)
       } catch (error) {
@@ -59,7 +67,7 @@ const ShowLandMarks = () => {
       data={data}
       det1={tit}
       det2={location}
-      det3= ''
+      det3= {content}
       det4 = {content}
       det5 = {id}
       det6= ''

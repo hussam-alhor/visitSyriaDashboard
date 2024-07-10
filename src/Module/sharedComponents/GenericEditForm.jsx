@@ -91,7 +91,13 @@ const GenericEditForm = ({
   const triggerFileInput = (id) => {
     document.getElementById(id).click();
   };
-
+  const token = window.localStorage.getItem('token')
+  // console.log(token)
+  const config = {
+    headers : {
+      'Authorization': `Bearer ${token}`
+    }
+  }
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = {
@@ -107,7 +113,7 @@ const GenericEditForm = ({
     };
 
     try {
-      const response = await axios.put(url, formData);
+      const response = await axios.put(url, formData , config);
       console.log('Submitted data:', formData);
       console.log('Response:', response.data);
     } catch (error) {

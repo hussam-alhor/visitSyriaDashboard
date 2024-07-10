@@ -36,7 +36,7 @@ const Login = () => {
         }) 
         
         if(res.status === 200){
-          window.localStorage.setItem("token", res.data.authorisation.token);
+          // window.localStorage.setItem("token", res.data.authorisation.token);
           window.localStorage.setItem("email", email);
           window.localStorage.setItem("token", res.data.authorisation.token)
           navigate("/home");

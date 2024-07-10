@@ -12,10 +12,18 @@ const EditHotel = () => {
     const [initialData, setInitialData] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    const token = window.localStorage.getItem('token')
+  // console.log(token)
+  const config = {
+    headers : {
+      'Authorization': `Bearer ${token}`
+    }
+  }
+
     useEffect(() => {
         const fetchInitialData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/show_hotel/${hotelId}`);
+                const response = await axios.get(`http://localhost:8000/api/show_hotel/${hotelId}` , config);
                 setInitialData(response.data.hotel);
                 setLoading(false);
               console.log(response.data);

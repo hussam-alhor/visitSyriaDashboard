@@ -10,10 +10,18 @@ const EditLandMark = () => {
     const [initialData, setInitialData] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    const token = window.localStorage.getItem('token')
+  // console.log(token)
+  const config = {
+    headers : {
+      'Authorization': `Bearer ${token}`
+    }
+  }
+
     useEffect(() => {
         const fetchInitialData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/show_landMark/${landmarkId}`);
+                const response = await axios.get(`http://localhost:8000/api/show_landMark/${landmarkId}` , config);
                 setInitialData(response.data.landmark);
                
                 setLoading(false);

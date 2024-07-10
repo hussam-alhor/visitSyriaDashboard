@@ -1,26 +1,17 @@
-import React from 'react'
-import SideBar from '../../SideBar/SideBar'
-import { Col, Row } from 'react-bootstrap'
-import AddArticleRight from '../component/AddAricleAboutRight/AddArticleRight'
-import AddArticleAboutLeft from '../component/AddArticleAboutLeft/AddArticleAboutLeft'
+import AddArticleComponent from "../component/AddArticleComponent/AddArticleComponent"
 
 const AboutSyriaAdd = () => {
   return (
-    <div className="sidFlex">
-       <SideBar />
-
-      <div className="showAboutContent">
-      <Row>
-          <Col sm='5'>
-          <AddArticleRight/>
-          </Col>
-          <Col sm='5'>
-            <AddArticleAboutLeft/>
-          </Col>
-      </Row>
-      </div> 
-
-    </div>
+   <>
+   <AddArticleComponent
+    nameLabel='اسم المقال'
+    type='تصنيف المقال'
+    mainDescriptionLabel='محتوى المقالة'
+    buttonLabel='إضافة مقال'
+    entityType=''
+    url={`http://localhost:8000/api/add_Post`}
+   />
+   </>
   )
 }
 

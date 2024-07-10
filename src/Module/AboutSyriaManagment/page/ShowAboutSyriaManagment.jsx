@@ -3,17 +3,24 @@ import AboutSyriaTable from "./AboutSyriaTable";
 import "./ShowAboutSyriaManagment.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const ShowAboutSyriaManagment = () => {
   
   const [data, setData] = useState([])
+  const token = window.localStorage.getItem('token')
+  const config = { 
+    headers : {
+      'Authorization': `Bearer ${token}`
+    } 
+  }
 
     useEffect ( ()=> {
       fetchData();
     }, [] )
   const fetchData = async ()=> {
     try {
-      const response = await  axios.get( 'http://127.0.0.1:8000/api/all_posts')
+      const response = await  axios.get( 'http://127.0.0.1:8000/api/all_posts', config)
       setData (response.data.post)
     } catch (error) {
       console.error("There was an error fetching the data!", error);
@@ -35,6 +42,12 @@ const ShowAboutSyriaManagment = () => {
       console.error('Error deleting items:', error)
     }
   }
+
+  const navigate = useNavigate()
+  
+  const editRow = (id) => {
+    navigate(`/AboutSyriaEdit/${id}`);
+  };
   
   return (
     
@@ -73,6 +86,7 @@ const ShowAboutSyriaManagment = () => {
           deleteRow = {deleteRow}
           urlAdd = '/AboutSyriaAdd'
           urlEdit = '/AboutSyriaEdit'
+          editRow = {editRow}
         />
     </div>
   );

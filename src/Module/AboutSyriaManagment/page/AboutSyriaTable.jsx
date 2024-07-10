@@ -57,9 +57,9 @@ const AboutSyriaTable = ({ head1, head2, head3, head4, head5, head6, head7, head
                 <td>{index + 1}</td>
                 <td>{det1[index]}</td>
                 <td>{det2[index]}</td>
-                {head4 && <td>{det3[index]}</td>}
-                {head5 && <td>{det4[index]}</td>}
-                {head8 && <td>{det6[index]}</td>}
+                {head4 && <td>{det3}</td>}
+                {head5 && <td>{det4}</td>}
+                {head8 && <td>{det6}</td>}
                 <td>
                   <img src={pen} alt="" onClick={() => editRow(det5[index])} />
                 </td>

@@ -6,6 +6,13 @@ import GenericEditForm from '../../sharedComponents/GenericEditForm';
 
 const EditRestaurants = () => {
     const { restaurantId } = useParams();
+    const token = window.localStorage.getItem('token')
+  // console.log(token)
+  const config = {
+    headers : {
+      'Authorization': `Bearer ${token}`
+    }
+  }
   
 //${restaurantId}
     const navigate = useNavigate();
@@ -15,7 +22,7 @@ const EditRestaurants = () => {
     useEffect(() => {
         const fetchInitialData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/show_restaurant/${restaurantId}`);
+                const response = await axios.get(`http://localhost:8000/api/show_restaurant/${restaurantId}` , config);
                 setInitialData(response.data);
                 setLoading(false);
             //   console.log(response.data.restaurant);
