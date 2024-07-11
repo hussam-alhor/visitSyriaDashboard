@@ -1,0 +1,18 @@
+.CountCardDashbord.card {
+    width: 13rem ;
+    height: 7rem;
+    margin: 20px;
+}
+
+.CountCardDashbord .card-body .row{
+    width:min-content !important;
+    flex-wrap: unset !important;
+}
+
+.CountCardDashbord .card-body .card-title{
+    font-size: 2rem !important;
+}
+
+.CountCardDashbord .card-body .row{
+    width: 70% !important;
+}
